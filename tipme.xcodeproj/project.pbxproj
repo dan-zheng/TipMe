@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					37D9DDC41DF0951D0067EB42 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RMV4KG4TL2;
 						ProvisioningStyle = Automatic;
 					};
 					37D9DDD81DF0951D0067EB42 = {
@@ -410,7 +411,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RMV4KG4TL2;
 				INFOPLIST_FILE = tipme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danzheng.tipme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,7 +425,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RMV4KG4TL2;
 				INFOPLIST_FILE = tipme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danzheng.tipme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -503,6 +508,7 @@
 				37D9DDEF1DF0951D0067EB42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37D9DDF01DF0951D0067EB42 /* Build configuration list for PBXNativeTarget "tipmeTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +517,7 @@
 				37D9DDF21DF0951D0067EB42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37D9DDF31DF0951D0067EB42 /* Build configuration list for PBXNativeTarget "tipmeUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +526,7 @@
 				37D9DDF51DF0951D0067EB42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
