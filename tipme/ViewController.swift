@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import ValueStepper
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var billView: UIView!
     @IBOutlet weak var billField: UITextField!
-    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipPercentLabel: UILabel!
+    @IBOutlet weak var tipValueLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var tipSlider: UISlider!
     
-    let tipPercentage = [0.18, 0.20, 0.25]
+    @IBOutlet weak var billViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var billFieldTop: NSLayoutConstraint!
+    
+    let tipPercentage = [0.15, 0.20, 0.25]
     
     let defaults = UserDefaults.standard
     
@@ -23,6 +30,15 @@ class ViewController: UIViewController {
     
     var locale = Locale.current
     var currencySymbol: String?
+    
+    var topHeight: CGFloat?
+    var fullHeight: CGFloat?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +52,22 @@ class ViewController: UIViewController {
             tipControl.selectedSegmentIndex = tipPercentage.index(of: defaults.double(forKey: "tip_percentage")) ?? 1
         }
         
+        billField.becomeFirstResponder()
+        
         if (defaults.bool(forKey: "bill")) {
-            print(defaults.double(forKey: "bill"))
             billField.text = String(format: "%@%.2f", currencySymbol!, defaults.double(forKey: "bill"))
             billField.text = String(format: "%.2f", defaults.double(forKey: "bill"))
+        }
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            //print(keyboardSize)
+            //print(keyboardSize.origin.y)
+            topHeight = keyboardSize.origin.y - keyboardSize.height
+            fullHeight = keyboardSize.origin.y
+            //billViewHeight.constant = topHeight! - 200
+            //billView.setNeedsLayout()
             calculateTip(billField)
         }
     }
@@ -53,10 +81,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onBillChange(_ sender: AnyObject) {
+        /*
         defaults.set(Double(billField.text!), forKey: "bill")
         print(defaults.double(forKey: "bill"))
         defaults.synchronize()
         calculateTip(billField)
+ */
     }
     
     @IBAction func onControlTap(_ sender: AnyObject) {
@@ -65,14 +95,39 @@ class ViewController: UIViewController {
         calculateTip(tipControl)
     }
     
+    @IBAction func onTipChange(_ sender: AnyObject) {
+        print(tipSlider.value)
+        let tipPercent = Float(round(tipSlider.value * 100))
+        tipPercentLabel.text = String(format: "%.f%%", tipPercent)
+    }
+    
+    func changeViewState() {
+        if (billField.text != nil && billField.text != "") {
+            UIView.animate(withDuration: 0.12, delay: 0, options: [.curveEaseOut], animations: {
+                self.tipControl.isHidden = false
+                self.billViewHeight.constant = self.topHeight! - 200
+                self.billFieldTop.constant = 82
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            UIView.animate(withDuration: 0.12, delay: 0, options: [.curveEaseOut], animations: {
+                self.tipControl.isHidden = true
+                self.billViewHeight.constant = self.fullHeight!
+                self.billFieldTop.constant = self.topHeight! - 100 - 16
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
     @IBAction func calculateTip(_ sender: AnyObject) {
-        print(billField.font!)
+        changeViewState()
+        //print(billField.font!)
         let bill = defaults.double(forKey: "bill")
         let tipValue = defaults.double(forKey: "tip_percentage")
         let tip = bill * tipValue
         let total = bill + tip
         
-        tipLabel.text = String(format: "%@%.2f", currencySymbol!, tip)
+        tipValueLabel.text = String(format: "%@%.2f", currencySymbol!, tip)
         totalLabel.text = String(format: "%@%.2f", currencySymbol!, total)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B205C44AF8C8F2D35C693B6 /* Pods_tipme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B613373C8108C80D1856EC5F /* Pods_tipme.framework */; };
 		37D9DDC91DF0951D0067EB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9DDC81DF0951D0067EB42 /* AppDelegate.swift */; };
 		37D9DDCB1DF0951D0067EB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9DDCA1DF0951D0067EB42 /* ViewController.swift */; };
 		37D9DDCE1DF0951D0067EB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D9DDCC1DF0951D0067EB42 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		290E9E45ED7A979F9F72C42E /* Pods_tipmeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipmeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D9DDC51DF0951D0067EB42 /* tipme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D9DDC81DF0951D0067EB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D9DDCA1DF0951D0067EB42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		37D9DDE41DF0951D0067EB42 /* tipmeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipmeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D9DDE81DF0951D0067EB42 /* tipmeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipmeUITests.swift; sourceTree = "<group>"; };
 		37D9DDEA1DF0951D0067EB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B80190CAA529E8C3FF84AB /* Pods-tipme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipme.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipme/Pods-tipme.release.xcconfig"; sourceTree = "<group>"; };
+		6AF3C029697E9CF7AE212697 /* Pods-tipme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipme.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tipme/Pods-tipme.debug.xcconfig"; sourceTree = "<group>"; };
+		B613373C8108C80D1856EC5F /* Pods_tipme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D542E678DD68545C4DD53F42 /* Pods_tipmeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipmeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B205C44AF8C8F2D35C693B6 /* Pods_tipme.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CE52AF095249BC0A989FE86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B613373C8108C80D1856EC5F /* Pods_tipme.framework */,
+				290E9E45ED7A979F9F72C42E /* Pods_tipmeTests.framework */,
+				D542E678DD68545C4DD53F42 /* Pods_tipmeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		37D9DDBC1DF0951D0067EB42 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +98,8 @@
 				37D9DDDC1DF0951D0067EB42 /* tipmeTests */,
 				37D9DDE71DF0951D0067EB42 /* tipmeUITests */,
 				37D9DDC61DF0951D0067EB42 /* Products */,
+				CCFB32FBEB3CC044C7F298CC /* Pods */,
+				2CE52AF095249BC0A989FE86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +144,15 @@
 			path = tipmeUITests;
 			sourceTree = "<group>";
 		};
+		CCFB32FBEB3CC044C7F298CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6AF3C029697E9CF7AE212697 /* Pods-tipme.debug.xcconfig */,
+				42B80190CAA529E8C3FF84AB /* Pods-tipme.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37D9DDED1DF0951D0067EB42 /* Build configuration list for PBXNativeTarget "tipme" */;
 			buildPhases = (
+				0080EFA8194B1C818E3BFAD8 /* [CP] Check Pods Manifest.lock */,
 				37D9DDC11DF0951D0067EB42 /* Sources */,
 				37D9DDC21DF0951D0067EB42 /* Frameworks */,
 				37D9DDC31DF0951D0067EB42 /* Resources */,
+				D91B6FA761430E7C27506973 /* [CP] Embed Pods Frameworks */,
+				EBC15D39B8CED6DAF292D0D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,6 +286,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0080EFA8194B1C818E3BFAD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D91B6FA761430E7C27506973 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tipme/Pods-tipme-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBC15D39B8CED6DAF292D0D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tipme/Pods-tipme-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		37D9DDC11DF0951D0067EB42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -334,6 +413,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -356,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -383,6 +463,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -399,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -409,7 +490,9 @@
 		};
 		37D9DDEE1DF0951D0067EB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF3C029697E9CF7AE212697 /* Pods-tipme.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RMV4KG4TL2;
 				INFOPLIST_FILE = tipme/Info.plist;
@@ -423,7 +506,9 @@
 		};
 		37D9DDEF1DF0951D0067EB42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42B80190CAA529E8C3FF84AB /* Pods-tipme.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RMV4KG4TL2;
 				INFOPLIST_FILE = tipme/Info.plist;
