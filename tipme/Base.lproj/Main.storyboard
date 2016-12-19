@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -267,7 +268,13 @@
                             <outletCollection property="gestureRecognizers" destination="p20-cs-Rrx" appends="YES" id="rei-9w-m7V"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="TipMe" id="98h-Vm-AhI"/>
+                    <navigationItem key="navigationItem" title="TipMe" id="98h-Vm-AhI">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="gST-48-wTe">
+                            <connections>
+                                <segue destination="eWL-HE-y3Y" kind="push" id="o9Q-qF-QE0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="0KS-Li-XWi" id="eUE-Gt-Yzb"/>
                         <outlet property="billFieldTop" destination="Eeu-FL-jwU" id="kdt-iE-iO6"/>
@@ -277,7 +284,7 @@
                         <outlet property="split3Label" destination="TNs-S4-OZZ" id="qWn-1k-4Ua"/>
                         <outlet property="split4Label" destination="c1J-ne-iTt" id="f5o-O0-X5c"/>
                         <outlet property="split5Label" destination="cvT-QV-ZuU" id="Epj-tJ-DqR"/>
-                        <outlet property="splitViewHeight" destination="s7V-CI-WYt" id="VEP-et-gp5"/>
+                        <outlet property="splitView" destination="3gs-md-5fM" id="buK-Vc-cW7"/>
                         <outlet property="tipPercentLabel" destination="Yei-be-HVa" id="F1D-YD-6ly"/>
                         <outlet property="tipSlider" destination="LxL-tl-aPD" id="Sxq-2y-Op8"/>
                         <outlet property="tipTextLabel" destination="m7W-Zd-Tq3" id="YYh-Xy-5oA"/>
@@ -294,6 +301,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672.5" y="152.5"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="fZT-qA-eUE">
+            <objects>
+                <viewController id="eWL-HE-y3Y" customClass="SettingsViewController" customModule="tipme" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0He-b8-KWe"/>
+                        <viewControllerLayoutGuide type="bottom" id="yY8-kF-Duo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HDz-FU-FRO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-AS-MWb">
+                                <rect key="frame" x="16" y="101" width="343" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="8hn-6F-Iqg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5r-nc-Scf">
+                                <rect key="frame" x="317" y="136" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="0gw-2V-COM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000298023224" minValue="0.10000000149011612" maxValue="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="dXX-N1-gb8">
+                                <rect key="frame" x="14" y="143" width="293" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="0gU-dT-lf7"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="0.12549019610000001" green="0.1450980392" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.67843137249999996" green="0.83529411760000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onTipChange:" destination="eWL-HE-y3Y" eventType="valueChanged" id="TmA-Qs-MrJ"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x5r-nc-Scf" firstAttribute="trailing" secondItem="cal-AS-MWb" secondAttribute="trailing" id="36J-Xm-OdP"/>
+                            <constraint firstItem="dXX-N1-gb8" firstAttribute="top" secondItem="cal-AS-MWb" secondAttribute="bottom" id="EjS-Id-vZB"/>
+                            <constraint firstItem="x5r-nc-Scf" firstAttribute="leading" secondItem="dXX-N1-gb8" secondAttribute="trailing" constant="12" id="Qdw-QX-5if"/>
+                            <constraint firstItem="dXX-N1-gb8" firstAttribute="leading" secondItem="HDz-FU-FRO" secondAttribute="leadingMargin" id="hXg-4f-wLJ"/>
+                            <constraint firstItem="dXX-N1-gb8" firstAttribute="leading" secondItem="cal-AS-MWb" secondAttribute="leading" id="oJl-df-eGk"/>
+                            <constraint firstItem="yY8-kF-Duo" firstAttribute="top" secondItem="dXX-N1-gb8" secondAttribute="bottom" constant="494" id="uxj-K9-oF6"/>
+                            <constraint firstItem="x5r-nc-Scf" firstAttribute="top" secondItem="0He-b8-KWe" secondAttribute="bottom" constant="72" id="yt1-qD-LZZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="djQ-tU-sLQ"/>
+                    <connections>
+                        <outlet property="tipPercentLabel" destination="x5r-nc-Scf" id="NjH-rV-KRY"/>
+                        <outlet property="tipSlider" destination="dXX-N1-gb8" id="9OX-sn-xLW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqJ-Er-ckr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153.5" y="155.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FVq-mU-uXe">

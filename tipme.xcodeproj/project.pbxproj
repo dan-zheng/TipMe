@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B205C44AF8C8F2D35C693B6 /* Pods_tipme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B613373C8108C80D1856EC5F /* Pods_tipme.framework */; };
+		375282DC1E07924C00BDA893 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375282DB1E07924C00BDA893 /* SettingsViewController.swift */; };
 		37D9DDC91DF0951D0067EB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9DDC81DF0951D0067EB42 /* AppDelegate.swift */; };
 		37D9DDCB1DF0951D0067EB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9DDCA1DF0951D0067EB42 /* ViewController.swift */; };
 		37D9DDCE1DF0951D0067EB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D9DDCC1DF0951D0067EB42 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		290E9E45ED7A979F9F72C42E /* Pods_tipmeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipmeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		375282DB1E07924C00BDA893 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		37D9DDC51DF0951D0067EB42 /* tipme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D9DDC81DF0951D0067EB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D9DDCA1DF0951D0067EB42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		37D9DDC71DF0951D0067EB42 /* tipme */ = {
 			isa = PBXGroup;
 			children = (
+				375282DB1E07924C00BDA893 /* SettingsViewController.swift */,
 				37D9DDC81DF0951D0067EB42 /* AppDelegate.swift */,
 				37D9DDCA1DF0951D0067EB42 /* ViewController.swift */,
 				37D9DDCC1DF0951D0067EB42 /* Main.storyboard */,
@@ -341,6 +344,7 @@
 			files = (
 				37D9DDCB1DF0951D0067EB42 /* ViewController.swift in Sources */,
 				37D9DDC91DF0951D0067EB42 /* AppDelegate.swift in Sources */,
+				375282DC1E07924C00BDA893 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

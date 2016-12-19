@@ -33,9 +33,8 @@ class ViewController: UIViewController {
     // Use defaults to save application data
     let defaults = UserDefaults.standard
     
-    // Find currency symbol of current Locale
-    var locale = Locale.current
-    var currencySymbol: String?
+    // Create number formatter for currency
+    var formatter = NumberFormatter()
     
     // Helper variables for various heights
     var screenHeight: CGFloat?
@@ -45,20 +44,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Set placeholder of billField to currency symbol of current locale
-        locale = Locale.current
-        currencySymbol = locale.currencySymbol
-        billField.placeholder = currencySymbol
-        
-        // Find screen height of device
-        screenHeight = UIScreen.main.bounds.height
-        
         // If there is no default tip percentage, set it to 0.20
         if (!defaults.bool(forKey: "tipPercentage")) {
             defaults.set(Float(0.20), forKey: "tipPercentage")
@@ -66,11 +51,14 @@ class ViewController: UIViewController {
         }
         // Set value of tipSlider to tip percentage
         tipSlider.value = defaults.float(forKey: "tipPercentage")
+        tipPercentLabel.text = String(format: "%.f%%", Float(round(tipSlider.value * 100)))
         
         // If there is a default bill value
         if (defaults.bool(forKey: "bill")) {
             // Set billField text to default value and calculate tip
             billField.text = String(format: "%.2f", defaults.double(forKey: "bill"))
+            //billField.text = formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
+            
             calculateTip(billField)
         }
         // If there is no default bill value
@@ -85,6 +73,23 @@ class ViewController: UIViewController {
             self.totalView.isHidden = true
             self.splitView.isHidden = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Set formatter
+        formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        
+        // Set placeholder of billField to currency symbol of current locale
+        billField.placeholder = formatter.currencySymbol
+        
+        // Find screen height of device
+        screenHeight = UIScreen.main.bounds.height
     }
     
     /**
@@ -179,12 +184,21 @@ class ViewController: UIViewController {
         let total = bill + tip
         
         // Update text of labels
+        /*
         tipValueLabel.text = String(format: "%@%.2f", currencySymbol!, tip)
         totalLabel.text = String(format: "%@%.2f", currencySymbol!, total)
         split2Label.text = String(format: "%@%.2f", currencySymbol!, total/2)
         split3Label.text = String(format: "%@%.2f", currencySymbol!, total/3)
         split4Label.text = String(format: "%@%.2f", currencySymbol!, total/4)
         split5Label.text = String(format: "%@%.2f", currencySymbol!, total/5)
+        */
+        tipValueLabel.text = formatter.string(from: NSNumber(value: tip))
+        totalLabel.text = formatter.string(from: NSNumber(value: total))
+        split2Label.text = formatter.string(from: NSNumber(value: total/2))
+        split3Label.text = formatter.string(from: NSNumber(value: total/3))
+        split4Label.text = formatter.string(from: NSNumber(value: total/4))
+        split5Label.text = formatter.string(from: NSNumber(value: total/5))
+        formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
     }
 }
 
