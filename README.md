@@ -43,7 +43,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ### Summary
 
-This was my first experience creating an iOS app. I have previous experience with Android development, so the Xcode Storyboard builder was somewhat intuitive to me. I also have experience writing Swift from using the Vapor web framework, so I didn't feel inhibited by my lack of understanding of the language. This app was designed for the iPhone 6/6s: other iOs devices may encounter display issues.
+This was my first experience creating an iOS app. I have previous experience with Android development, so the Xcode Storyboard builder was somewhat intuitive to me. I also have experience writing Swift from using the Vapor web framework, so I didn't feel limited by my lack of understanding of the language. This app was designed for the iPhone 6/6s: other iOS devices may encounter display issues.
 
 ### Difficulties
 
