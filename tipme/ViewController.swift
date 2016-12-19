@@ -184,21 +184,12 @@ class ViewController: UIViewController {
         let total = bill + tip
         
         // Update text of labels
-        /*
-        tipValueLabel.text = String(format: "%@%.2f", currencySymbol!, tip)
-        totalLabel.text = String(format: "%@%.2f", currencySymbol!, total)
-        split2Label.text = String(format: "%@%.2f", currencySymbol!, total/2)
-        split3Label.text = String(format: "%@%.2f", currencySymbol!, total/3)
-        split4Label.text = String(format: "%@%.2f", currencySymbol!, total/4)
-        split5Label.text = String(format: "%@%.2f", currencySymbol!, total/5)
-        */
         tipValueLabel.text = formatter.string(from: NSNumber(value: tip))
         totalLabel.text = formatter.string(from: NSNumber(value: total))
         split2Label.text = formatter.string(from: NSNumber(value: total/2))
         split3Label.text = formatter.string(from: NSNumber(value: total/3))
         split4Label.text = formatter.string(from: NSNumber(value: total/4))
         split5Label.text = formatter.string(from: NSNumber(value: total/5))
-        formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
     }
 }
 
