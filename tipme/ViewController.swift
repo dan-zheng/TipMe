@@ -188,7 +188,7 @@ class ViewController: UIViewController {
         let total = bill + tipValue
         
         // Update text of labels
-        tipValueLabel.text = formatter.string(from: NSNumber(value: tip))
+        tipValueLabel.text = formatter.string(from: NSNumber(value: tipValue))
         totalLabel.text = formatter.string(from: NSNumber(value: total))
         split2Label.text = formatter.string(from: NSNumber(value: total/2))
         split3Label.text = formatter.string(from: NSNumber(value: total/3))
