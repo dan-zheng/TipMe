@@ -132,9 +132,9 @@ class ViewController: UIViewController {
         changeViewState()
         
         // Store numerical value of billFields in defaults
-        let billValue = formatter.number(from: billField.text!)?.doubleValue
-        bill = billValue!
-        defaults.set(Double(billField.text!), forKey: "bill")
+        let billValue = formatter.number(from: billField.text!)?.doubleValue ?? 0
+        bill = billValue
+        defaults.set(bill, forKey: "bill")
         defaults.synchronize()
         
         // Calculate tip
