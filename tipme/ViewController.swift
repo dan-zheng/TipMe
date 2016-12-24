@@ -62,8 +62,8 @@ class ViewController: UIViewController {
         if (defaults.bool(forKey: "bill")) {
             // Set billField text to default value and calculate tip
             bill = defaults.double(forKey: "bill")
-            billField.text = String(format: "%.2f", defaults.double(forKey: "bill"))
-            //billField.text = formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
+            //billField.text = String(format: "%.2f", defaults.double(forKey: "bill"))
+            billField.text = formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
             
             calculateTip(billField)
         }
@@ -131,8 +131,9 @@ class ViewController: UIViewController {
         // Update view state of app based on status of billField
         changeViewState()
         
-        // Store text of billFields in defaults
-        bill = Double(billField.text!) ?? 0
+        // Store numerical value of billFields in defaults
+        let billValue = formatter.number(from: billField.text!)?.doubleValue
+        bill = billValue!
         defaults.set(Double(billField.text!), forKey: "bill")
         defaults.synchronize()
         
