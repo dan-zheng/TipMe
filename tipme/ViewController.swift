@@ -41,6 +41,10 @@ class ViewController: UIViewController {
     var topHeight: CGFloat?
     var fullHeight: CGFloat?
     
+    // Variables to store bill and tip
+    var bill: Double = 0.0
+    var tip: Double = 0.0
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -50,12 +54,14 @@ class ViewController: UIViewController {
             defaults.synchronize()
         }
         // Set value of tipSlider to tip percentage
+        tip = defaults.double(forKey: "tipPercentage")
         tipSlider.value = defaults.float(forKey: "tipPercentage")
         tipPercentLabel.text = String(format: "%.f%%", Float(round(tipSlider.value * 100)))
         
         // If there is a default bill value
         if (defaults.bool(forKey: "bill")) {
             // Set billField text to default value and calculate tip
+            bill = defaults.double(forKey: "bill")
             billField.text = String(format: "%.2f", defaults.double(forKey: "bill"))
             //billField.text = formatter.string(from: NSNumber(value: defaults.double(forKey: "bill")))
             
@@ -126,6 +132,7 @@ class ViewController: UIViewController {
         changeViewState()
         
         // Store text of billFields in defaults
+        bill = Double(billField.text!) ?? 0
         defaults.set(Double(billField.text!), forKey: "bill")
         defaults.synchronize()
         
@@ -135,9 +142,8 @@ class ViewController: UIViewController {
     
     @IBAction func onTipChange(_ sender: AnyObject) {
         // Calculate tip percentage and store in defaults
-        let tipPercent = Float(round(tipSlider.value * 100))
-        defaults.set(tipPercent/100, forKey: "tipPercentage")
-        defaults.synchronize()
+        let tipPercent = Double(round(tipSlider.value * 100))
+        tip = tipPercent / 100
         
         // Update tipPercentLabel text
         tipPercentLabel.text = String(format: "%.f%%", tipPercent)
@@ -176,12 +182,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(_ sender: AnyObject) {
-        // Get bill and tip percentage from defaults
-        let bill = defaults.double(forKey: "bill")
-        let tipValue = defaults.double(forKey: "tipPercentage")
         // Calculate tip and total values
-        let tip = bill * tipValue
-        let total = bill + tip
+        let tipValue = bill * tip
+        let total = bill + tipValue
         
         // Update text of labels
         tipValueLabel.text = formatter.string(from: NSNumber(value: tip))
@@ -192,4 +195,5 @@ class ViewController: UIViewController {
         split5Label.text = formatter.string(from: NSNumber(value: total/5))
     }
 }
+
 

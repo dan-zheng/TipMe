@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1208" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="5W2-iX-qOb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="5W2-iX-qOb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -302,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="672.5" y="152.5"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="fZT-qA-eUE">
             <objects>
                 <viewController id="eWL-HE-y3Y" customClass="SettingsViewController" customModule="tipme" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-AS-MWb">
-                                <rect key="frame" x="16" y="101" width="343" height="42"/>
+                                <rect key="frame" x="138" y="101" width="99" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="8hn-6F-Iqg"/>
                                 </constraints>
@@ -347,16 +347,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x5r-nc-Scf" firstAttribute="trailing" secondItem="cal-AS-MWb" secondAttribute="trailing" id="36J-Xm-OdP"/>
                             <constraint firstItem="dXX-N1-gb8" firstAttribute="top" secondItem="cal-AS-MWb" secondAttribute="bottom" id="EjS-Id-vZB"/>
                             <constraint firstItem="x5r-nc-Scf" firstAttribute="leading" secondItem="dXX-N1-gb8" secondAttribute="trailing" constant="12" id="Qdw-QX-5if"/>
                             <constraint firstItem="dXX-N1-gb8" firstAttribute="leading" secondItem="HDz-FU-FRO" secondAttribute="leadingMargin" id="hXg-4f-wLJ"/>
-                            <constraint firstItem="dXX-N1-gb8" firstAttribute="leading" secondItem="cal-AS-MWb" secondAttribute="leading" id="oJl-df-eGk"/>
+                            <constraint firstItem="cal-AS-MWb" firstAttribute="centerX" secondItem="HDz-FU-FRO" secondAttribute="centerX" id="tjV-q3-3Vh"/>
                             <constraint firstItem="yY8-kF-Duo" firstAttribute="top" secondItem="dXX-N1-gb8" secondAttribute="bottom" constant="494" id="uxj-K9-oF6"/>
                             <constraint firstItem="x5r-nc-Scf" firstAttribute="top" secondItem="0He-b8-KWe" secondAttribute="bottom" constant="72" id="yt1-qD-LZZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="djQ-tU-sLQ"/>
+                    <navigationItem key="navigationItem" title="Settings" id="djQ-tU-sLQ"/>
                     <connections>
                         <outlet property="tipPercentLabel" destination="x5r-nc-Scf" id="NjH-rV-KRY"/>
                         <outlet property="tipSlider" destination="dXX-N1-gb8" id="9OX-sn-xLW"/>
